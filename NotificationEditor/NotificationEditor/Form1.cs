@@ -39,8 +39,8 @@ namespace NotificationEditor
         private void VariableTextBox_TextChanged(object sender, EventArgs e)
         {
             Variables = VariableTextBox.Text.Split('\n').ToDictionary(x => x.Split('=').First().Trim().ToUpperInvariant(), x => string.Join("=", x.Split('=').Skip(1)).Trim());
-            foreach (var pair in DBVariables) Variables.Add(pair.Key, pair.Value);
-            foreach (var pair in NotificationVariables) Variables.Add(pair.Key, pair.Value);
+            foreach (var pair in NotificationVariables) if (!Variables.ContainsKey(pair.Key)) Variables.Add(pair.Key, pair.Value);
+            foreach (var pair in DBVariables) if (!Variables.ContainsKey(pair.Key)) Variables.Add(pair.Key, pair.Value);
             NotificationTextBox_TextChanged(sender, e);
         }
         private void LoadDBVariables()
