@@ -85,8 +85,11 @@ namespace NotificationEditor
             while (reader.Read())
             {
                 var key = reader.GetString(0);
+                //reader.GetString
+                if (reader.IsDBNull(1))
+                    continue;
                 var value = reader.GetString(1);
-                DBVariables.Add(key.ToUpperInvariant(), value);
+                NotificationVariables.Add(key.ToUpperInvariant(), value);
             }
             reader.Close();
             connection.Close();
