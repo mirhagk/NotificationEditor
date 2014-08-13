@@ -103,6 +103,11 @@ namespace NotificationEditor
 
         private void SaveAsButton_Click(object sender, EventArgs e)
         {
+            var dialog = new SaveFileDialog();
+            dialog.FileName = NotificationFileName;
+            var result = dialog.ShowDialog();
+            NotificationFileName = dialog.FileName;
+            SaveButton_Click(sender, e);
 
         }
     }
