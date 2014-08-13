@@ -34,6 +34,8 @@
             this.LoadButton = new System.Windows.Forms.Button();
             this.NotificationID = new System.Windows.Forms.TextBox();
             this.NotificationIDLabel = new System.Windows.Forms.Label();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.SaveAsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // VariableTextBox
@@ -91,11 +93,33 @@
             this.NotificationIDLabel.TabIndex = 5;
             this.NotificationIDLabel.Text = "NoticationID";
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(1233, 188);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(148, 23);
+            this.SaveButton.TabIndex = 6;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // SaveAsButton
+            // 
+            this.SaveAsButton.Location = new System.Drawing.Point(1233, 218);
+            this.SaveAsButton.Name = "SaveAsButton";
+            this.SaveAsButton.Size = new System.Drawing.Size(148, 23);
+            this.SaveAsButton.TabIndex = 7;
+            this.SaveAsButton.Text = "Save As";
+            this.SaveAsButton.UseVisualStyleBackColor = true;
+            this.SaveAsButton.Click += new System.EventHandler(this.SaveAsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1393, 580);
+            this.Controls.Add(this.SaveAsButton);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.NotificationIDLabel);
             this.Controls.Add(this.NotificationID);
             this.Controls.Add(this.LoadButton);
@@ -117,6 +141,8 @@
         private System.Windows.Forms.Button LoadButton;
         private System.Windows.Forms.TextBox NotificationID;
         private System.Windows.Forms.Label NotificationIDLabel;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button SaveAsButton;
     }
 }
 

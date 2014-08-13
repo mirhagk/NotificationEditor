@@ -27,6 +27,7 @@ namespace NotificationEditor
         Dictionary<string, string> Variables = new Dictionary<string, string>();
         Dictionary<string, string> DBVariables = new Dictionary<string, string>();
         Dictionary<string, string> NotificationVariables = new Dictionary<string, string>();
+        string NotificationFileName = null;
         private string CompileTemplate(string text)
         {
             string result = text;
@@ -66,6 +67,7 @@ namespace NotificationEditor
             var dialog = new OpenFileDialog();
             dialog.CheckFileExists = true;
             var result = dialog.ShowDialog();
+            NotificationFileName = dialog.FileName;
             var reader = new StreamReader(dialog.OpenFile());
             NotificationTextBox.Text = reader.ReadToEnd();
             reader.Close();
@@ -89,6 +91,19 @@ namespace NotificationEditor
             reader.Close();
             connection.Close();
             VariableTextBox_TextChanged(null, null);
+        }
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            SaveButton.Enabled = false;
+            var writer = new StreamWriter(NotificationFileName);
+            writer.Write(NotificationTextBox.Text);
+            writer.Close();
+            SaveButton.Enabled = true;
+        }
+
+        private void SaveAsButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
